@@ -33,9 +33,10 @@ AMap.plugin([
         input: "tipinput"
     });
     auto.on('select', (resp) => {
+        console.log(resp)
         CENTER_LOCATION.formattedAddress = `${resp.poi.district}${resp.poi.address}${resp.poi.name}`
-        CENTER_LOCATION.lng = resp.lng
-        CENTER_LOCATION.lat = resp.lat
+        CENTER_LOCATION.lng = resp.poi.location.lng
+        CENTER_LOCATION.lat = resp.poi.location.lat
         setMarker()
     })
 
@@ -51,13 +52,13 @@ AMap.plugin([
             CENTER_LOCATION.lat = result.position.lat
             setMarker()
         } else {
-            alert('位置获取失败！')
+            alert('位置获取失败，请手动搜索位置！')
         }
     })
-
-});
+})
 
 function setMarker() {
+    console.log(CENTER_LOCATION)
     CENTER_MARKER = new AMap.Marker({
         position: new AMap.LngLat(CENTER_LOCATION.lng || 121.43, CENTER_LOCATION.lat || 31.19),   // 经纬度对象，也可以是经纬度构成的一维数组[116.39, 39.9]
     })
