@@ -33,7 +33,6 @@ AMap.plugin([
         input: "tipinput"
     });
     auto.on('select', (resp) => {
-        console.log(resp)
         CENTER_LOCATION.formattedAddress = `${resp.poi.district}${resp.poi.address}${resp.poi.name}`
         CENTER_LOCATION.lng = resp.poi.location.lng
         CENTER_LOCATION.lat = resp.poi.location.lat
@@ -86,12 +85,12 @@ document.getElementById('rangeInput').addEventListener('keyup',e => {
     }
 })
 function handleReRange() {
-    const km = document.getElementById('rangeInput').value
+    const km = document.getElementById('rangeInput').value || 2
     if(km > 100) {
         alert('指数范围请不要超过100公里，这个范围已经没有意义了')
         return
     }else {
-        RANGE_DIS = document.getElementById('rangeInput').value * 1000
+        RANGE_DIS = km * 1000
         setMarker()
     }
 }
