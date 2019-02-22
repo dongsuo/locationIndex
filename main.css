@@ -7,7 +7,9 @@ html, body {
 }
 
 .info {
-    color: #275739;
+    color: #fff;
+    background: #000!important;
+    opacity: 0.8;
   }
 
   .info h4, .info p {
