@@ -97,7 +97,7 @@ function handleReRange() {
 function loadStarbuck(location, range) {
     let icon = new AMap.Icon({
         size: new AMap.Size(30, 30),    // 图标尺寸
-        image: 'https://i.loli.net/2019/02/22/5c700123c2235.png',  // Icon的图像
+        image: './icon.png',  // Icon的图像
         imageSize: new AMap.Size(30, 30)   // 根据所设置的大小拉伸或压缩图片
     })
     return new Promise((resolve,reject) => {
