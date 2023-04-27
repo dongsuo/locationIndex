@@ -101,7 +101,7 @@ function loadStarbuck(location, range) {
         imageSize: new AMap.Size(30, 30)   // 根据所设置的大小拉伸或压缩图片
     })
     return new Promise((resolve,reject) => {
-        fetch(`https://www.starbucks.com.cn/api/stores/nearby?lat=${location.lat}&lon=${location.lng}&limit=2000&locale=ZH&features=&radius=${range}`).then(resp => {
+        fetch(`./nearby?lat=${location.lat}&lon=${location.lng}&limit=2000&locale=ZH&features=&radius=${range}`).then(resp => {
             return resp.json()
         }).then(function(json) {
             resolve(json.data.map((item,index) => {
